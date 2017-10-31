@@ -13,11 +13,14 @@ SORT: <?php echo anchor('discussions/index/sort/age/' . (($dir == 'ASC') ? 'DESC
     foreach ($query->result() as $result) : ?>
       <tr>
         <td>
-          <?php echo anchor('c=comments&m=index/'.$result->ds_id,$result->ds_title) . ' '
-                . $this->lang->line('comments_created_by') . $result->usr_name;
+          <?php //echo anchor('comments/index/'.$result->ds_id,$result->ds_title) . ' '
+                //. $this->lang->line('comments_created_by') . $result->usr_name;
+                echo $this->input->post($result->ds_id,$result->ds_title);
+                echo anchor('c=comments&m=index&ds_id='.$result->ds_id,$result->ds_title) . ' '
+                      .$this->lang->line('comments_created_by').$result->usr_name;
 
-                //echo anchor('c=comments&m=index/'.$result->ds_id,$result->ds_title) . ' '
-                  //    .$this->lang->line('comments_created_by').$result->usr_name;
+                      //echo anchor('c=comments&m=index&ds_id='.$result->ds_id.'&ds_title'.$result->ds_title) . ' '
+                      //      .$this->lang->line('comments_created_by').$result->usr_name;
 
                 ?>
 

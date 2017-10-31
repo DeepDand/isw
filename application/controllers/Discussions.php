@@ -52,9 +52,6 @@ class Discussions extends CI_Controller {
                           );
             if ($ds_id = $this->Discussions_model->create($data)) {
               echo $ds_id;
-              echo '<script language="javascript">';
-              echo 'alery(message successfully sent)';  //not showing an alert box.
-              echo '</script>';
               //redirect('comments/index/'.$ds_id);
             } else {
                 // error

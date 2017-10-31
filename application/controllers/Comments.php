@@ -7,14 +7,19 @@ class Comments extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('Discussions_model');
         $this->load->model('Comments_model');
+        $this->lang->load('en_admin_lang');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
     }
 
     public function index() {
         if ($this->input->post()) {
+          $message = "IF";
+          echo "<script type='text/javascript'>alert('$message');</script>";
             $ds_id = $this->input->post('ds_id');
         } else {
-            $ds_id = $this->uri->segment(3);
+          $message = "ELSE";
+          echo "<script type='text/javascript'>alert('$message');</script>";
+          $ds_id = $this->input->get('ds_id');
         }
 
         $page_data['discussion_query'] = $this->Discussions_model->fetch_discussion($ds_id);

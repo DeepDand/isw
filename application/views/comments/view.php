@@ -1,7 +1,7 @@
 <!-- Discussion - initial comment -->
 <?php foreach ($discussion_query->result() as $discussion_result) : ?>
   <h2>
-      <?php echo $discussion_result->ds_title; ?><br />
+      <?php echo $discussion_result->ds_title; ?><br /><br />
       <small><?php echo $this->lang->line('comments_created_by') . $discussion_result->usr_name . $this->lang->line('comments_created_at') . $discussion_result->ds_created_at; ?></small>
   </h2>
   <p class="lead"><?php echo $discussion_result->ds_body; ?></p>

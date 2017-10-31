@@ -6,12 +6,13 @@
     }
 
     function fetch_comments($ds_id) {
-    $query = "SELECT * FROM 'comments', 'discussions', 'users'
-              WHERE 'discussions'.'ds_id' = ?
-               AND 'comments'.'ds_id' = 'discussions'.'ds_id'
-               AND 'comments'.'usr_id' = 'users'.'usr_id'
-               AND 'comments'.'cm_is_active' = '1'
-               ORDER BY 'comments'.'cm_created_at' DESC " ;
+    $this->load->database('default');
+    $query = "SELECT * FROM `comments`, `discussions`, `users`
+              WHERE `discussions`.`ds_id` = $ds_id
+               AND `comments`.`ds_id` = `discussions`.`ds_id`
+               AND `comments`.`usr_id` = `users`.`usr_id`
+               AND `comments`.`cm_is_active` = '1'
+               ORDER BY `comments`.`cm_created_at` DESC " ;
 
         $result = $this->db->query($query, array($ds_id));
         if ($result) {
